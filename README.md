@@ -1,12 +1,16 @@
 # dasudian/client-tools
 
-Basho riak clould storage images.
+Dasudian client-tools images which include some service client tools.  
+Which based on opensuse image.
 
 ## Tags
 
-- [`latest` (latest/dockerfile)](https://github.com/Dasudian/docker-riak/blob/master/Dockerfile)  
+- [`opensuse` (opensuse/dockerfile)](https://github.com/Dasudian/docker-riak/blob/opensuse/Dockerfile)  
 
 ## Tools
 
 - curl  
-- psql
+- nc (netcat)  
+- psql  
+- mysql  
+- mongo  

@@ -1,11 +1,22 @@
 # This is a Dockerfile to build a docker image include some client tools.
-FROM alpine:3.4
+FROM opensuse:42.1
 MAINTAINER Mengz <mz@dasudian.com>
 
-# Install the tools
-RUN apk --update add \
-  curl \
-  postgresql-client && \
-  rm -rf /var/cache/apk/*
+# Setup the repoistory
+RUN zypper -q ar -G -r http://download.opensuse.org/repositories/server:/database:/postgresql/openSUSE_Leap_42.1/server:database:postgresql.repo && \
+  zypper -q ar -f -r http://download.opensuse.org/repositories/server:/database/openSUSE_Leap_42.1/server:database.repo && \
+  zypper -q ar -f -r https://repo.mongodb.org/zypper/suse/12/mongodb-org/3.2/x86_64/ mongodb
 
-CMD ["sh"]
+# Install the tools
+RUN zypper -qn --gpg-auto-import-keys ref && \
+  echo 'TIMEZONE="Asia/Chongqing"' > /etc/sysconfig/clock && \
+  zypper -qn in --no-recommends timezone \
+    which \
+    curl \
+    netcat-openbsd \
+    postgresql95 \
+    mariadb-client \
+    mongodb-org-shell && \
+  zypper clean --all
+
+CMD ["bash"]
