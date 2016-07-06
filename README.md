@@ -1,10 +1,11 @@
 # dasudian/client-tools
 
-Basho riak clould storage images.
+Dasudian client-tools images which include some service client tools.  
+Which based on alpine image.
 
 ## Tags
 
-- [`latest` (latest/dockerfile)](https://github.com/Dasudian/docker-riak/blob/master/Dockerfile)  
+- [`alpine` (alpine/dockerfile)](https://github.com/Dasudian/docker-riak/blob/alpine/Dockerfile)  
 
 ## Tools
 
