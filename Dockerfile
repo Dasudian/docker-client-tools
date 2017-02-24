@@ -3,8 +3,7 @@ FROM alpine:3.5
 MAINTAINER Mengz <mz@dasudian.com>
 
 # Install the tools
-RUN sed -i 's|http://dl-cdn.alpinelinux.org|https://mirrors.ustc.edu.cn|' /etc/apk/repositories && \
-  apk --update && \
+RUN apk update && \
   apk add --no-cache \
     bash \
     ca-certificates \
